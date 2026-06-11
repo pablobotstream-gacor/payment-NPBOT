@@ -53,7 +53,11 @@
     padding: 12px 24px;
     display: flex; align-items: center; justify-content: space-between;
   }
-  nav .nav-logo { height: 38px; }
+  nav .nav-logo { height: 44px; }
+nav .nav-logo img {
+  height: 44px;
+  filter: drop-shadow(0 0 8px var(--green));
+}
   nav .nav-links { display: flex; gap: 20px; }
   nav .nav-links a {
     color: var(--muted); font-size: 13px; font-weight: 600;
@@ -76,7 +80,13 @@
     text-align: center;
     padding: 80px 20px 60px;
   }
-  .hero-logo { height: 100px; margin-bottom: 24px; filter: drop-shadow(0 0 30px rgba(57,231,95,0.5)); }
+  .hero-logo {
+  width: min(420px, 80vw);
+  height: auto;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 0 30px rgba(57,231,95,0.5));
+  animation: logo-in 1s ease both;
+}
   .hero h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: clamp(28px, 6vw, 56px);
@@ -322,13 +332,19 @@
     background: linear-gradient(90deg, transparent, var(--green), transparent);
   }
 
+
+  .modal-step3-info {
+    background: var(--green-glow2); border: 1px solid var(--border2);
+    border-radius: 10px; padding: 14px 16px; margin-bottom: 18px;
+    font-size: 12px; color: var(--muted); line-height: 1.7;
+  }
+  .modal-step3-info strong { color: var(--green); }
   /* RESPONSIVE */
   @media(max-width: 600px) {
     nav .nav-links { display: none; }
-    .hero-logo { height: 70px; }
     .modal { padding: 24px 18px; }
     .qr-img { width: 200px; height: 200px; }
-  }
+}
 </style>
 </head>
 <body>
@@ -342,8 +358,50 @@
     <a href="https://t.me/NPBot_admin" target="_blank">Admin</a>
     <a href="https://www.tiktok.com/@autotrade24jam" target="_blank">TikTok</a>
   </div>
-  <a href="#produk" class="nav-btn">⚡ Beli Sekarang</a>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div id="google_translate_element"></div>
+    <a href="#produk" class="nav-btn">⚡ Beli Sekarang</a>
+  </div>
 </nav>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'id',
+    includedLanguages: 'en,ar,zh-CN,zh-TW,ms,th,vi,tl,ko,ja,hi,tr,ru,fr,de,es,pt,nl,it,sv,da,fi,pl,cs,ro,hu,uk,bn,ur,fa,sw,id',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+  #google_translate_element .goog-te-gadget {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0 !important;
+  }
+  #google_translate_element .goog-te-gadget-simple {
+    background: var(--card) !important;
+    border: 1px solid var(--border2) !important;
+    border-radius: 8px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    cursor: pointer;
+  }
+  #google_translate_element .goog-te-gadget-simple span {
+    color: var(--green) !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+  }
+  #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
+    color: var(--green) !important;
+  }
+  #google_translate_element a img { display: none !important; }
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+  .skiptranslate { display: none !important; }
+</style>
 
 <!-- HERO -->
 <section class="hero">
@@ -388,6 +446,7 @@
       <div class="product-name">NPBOT-503</div>
       <div class="product-tagline">Auto Follow Candle — Entry otomatis setiap 5 menit</div>
       <div class="product-desc">
+        <div class="desc-rule"><span class="dot">▸</span><span>✅ MT5 Akun Cent · Modal min 10.000 Cent</span></div>
         <div class="desc-rule"><span class="dot">▸</span><span><strong>Timeframe:</strong> M5</span></div>
         <div class="desc-rule"><span class="dot">▸</span><span>Candle bearish → EA otomatis <span style="color:#ff6b6b;font-weight:700;">OPEN SELL</span></span></div>
         <div class="desc-rule"><span class="dot">▸</span><span>Candle bullish → EA otomatis <span style="color:#39e75f;font-weight:700;">OPEN BUY</span></span></div>
@@ -407,6 +466,8 @@
       <div class="product-name">NPBOT-PROFITDRIVE</div>
       <div class="product-tagline">Dynamic Profit Drive — Entry hanya saat sinyal valid</div>
       <div class="product-desc">
+        <div class="desc-rule"><span class="dot">▸</span><span>✅ MT5 Akun Cent · Modal min 10.000 Cent</span></div>
+        <div class="desc-rule"><span class="dot">▸</span><span><strong>Timeframe:</strong> M1</span></div>
         <div class="desc-rule"><span class="dot">▸</span><span>EA entry <strong>hanya</strong> saat ada sinyal yang valid</span></div>
         <div class="desc-rule"><span class="dot">▸</span><span>Tidak ada sinyal → EA tidak open posisi</span></div>
         <div class="desc-rule"><span class="dot">▸</span><span>Lebih <strong>selektif & stabil</strong>, cocok jangka panjang</span></div>
@@ -425,6 +486,8 @@
       <div class="product-name">NPBOT-ASISTEN</div>
       <div class="product-tagline">Bukan Auto Entry — Semua keputusan di tangan trader</div>
       <div class="product-desc">
+        <div class="desc-rule"><span class="dot">▸</span><span>✅ All Balance · Semua ukuran akun didukung</span></div>
+        <div class="desc-rule"><span class="dot">▸</span><span>✅ All Timeframe · Sesuai analisa masing-masing</span></div>
         <div class="desc-rule"><span class="dot">▸</span><span>Robot bantu <strong>eksekusi & manajemen posisi</strong></span></div>
         <div class="desc-rule"><span class="dot">▸</span><span>Averaging, layering, trailing profit lebih mudah</span></div>
         <div class="desc-rule"><span class="dot">▸</span><span>Pengelolaan risiko lebih cepat & terstruktur</span></div>
@@ -438,24 +501,45 @@
     </div>
 
     <!-- PAKET PEMULA -->
-    <div class="product-card featured" onclick="openModal('Paket Pemula Terima Beres (3 EA)', 'Rp 400.000', '400000')">
-      <span class="badge badge-bundle">🎁 PAKET HEMAT</span>
+    <div class="product-card featured" onclick="openModal('Paket Pemula Terima Beres', 'Rp 400.000', '400000')">
+      <span class="badge badge-bundle">🎁 PAKET PEMULA</span>
       <div class="product-name">PAKET PEMULA</div>
-      <div class="product-tagline">Terima Beres — Semua EA NPBOT dalam 1 paket</div>
+      <div class="product-tagline">Terima Beres — Tinggal stor ID akun, robot langsung jalan 24 jam</div>
       <div class="product-desc">
-        <div class="desc-rule"><span class="dot">▸</span><span>✅ NPBOT-503 (Auto Follow Candle)</span></div>
-        <div class="desc-rule"><span class="dot">▸</span><span>✅ NPBOT-ProfitDrive (Signal Based)</span></div>
-        <div class="desc-rule"><span class="dot">▸</span><span>✅ NPBOT-Asisten (Manual Helper)</span></div>
-        <div class="desc-rule"><span class="dot">▸</span><span>Setup & panduan penggunaan oleh admin</span></div>
-        <div class="desc-rule"><span class="dot">▸</span><span><strong>Hemat Rp 350.000</strong> dibanding beli terpisah</span></div>
-        <div class="desc-rule"><span class="dot">▸</span><span>Lisensi Lifetime semua EA</span></div>
+        <div class="desc-rule"><span class="dot">▸</span><span>✅ MT5 Akun Cent · Modal min 10.000 Cent</span></div>
+        <div class="desc-rule"><span class="dot">▸</span><span>✅ Robot Trading NPBOT (1 EA pilihan)</span></div>
+        <div class="desc-rule"><span class="dot">▸</span><span>✅ VPS Setting & Instalasi oleh admin</span></div>
+        <div class="desc-rule"><span class="dot">▸</span><span>✅ Konfigurasi robot + panduan penggunaan</span></div>
+        <div class="desc-rule"><span class="dot">▸</span><span>✅ Siap running 24 jam, pantau via HP</span></div>
+        <div class="desc-rule"><span class="dot">▸</span><span>💰 Robot Rp250K + VPS ±Rp100K/bln + Setting Rp50K</span></div>
       </div>
       <div class="product-footer">
-        <div class="product-price">Rp 400.000 <small><s style="color:#666;">Rp 750.000</s> · Hemat 47%</small></div>
+        <div class="product-price">Rp 400.000 <small>All-in · Terima Beres</small></div>
         <button class="btn-beli">BELI</button>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- BROKER REKOMENDASI -->
+<section id="broker" style="padding: 60px 20px; position: relative; z-index:1;">
+  <div class="section-title">BROKER <span>REKOMENDASI</span></div>
+  <div class="divider"></div>
+  <div style="max-width:700px; margin:0 auto; text-align:center;">
+    <div style="background:var(--card2); border:1px solid var(--border2); border-radius:20px; padding:36px 28px; box-shadow:0 0 40px rgba(57,231,95,0.08);">
+      <img src="data:image/png;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/9k=" alt="Valetax" style="height:56px; margin-bottom:20px; filter:drop-shadow(0 0 12px rgba(57,231,95,0.3));">
+      <h3 style="font-family:'Orbitron',sans-serif; color:var(--green); font-size:18px; letter-spacing:1px; margin-bottom:12px;">VALETAX</h3>
+      <p style="color:var(--muted); font-size:14px; line-height:1.8; margin-bottom:8px;">Broker yang kami rekomendasikan untuk penggunaan EA NPBOT.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:20px 0;">
+        <span style="background:var(--green-glow2); border:1px solid var(--border2); color:var(--green); font-size:12px; font-weight:600; padding:6px 14px; border-radius:20px;">✅ Akun Cent Tersedia</span>
+        <span style="background:var(--green-glow2); border:1px solid var(--border2); color:var(--green); font-size:12px; font-weight:600; padding:6px 14px; border-radius:20px;">✅ Support MT5</span>
+        <span style="background:var(--green-glow2); border:1px solid var(--border2); color:var(--green); font-size:12px; font-weight:600; padding:6px 14px; border-radius:20px;">✅ Bebas Komisi</span>
+        <span style="background:var(--green-glow2); border:1px solid var(--border2); color:var(--green); font-size:12px; font-weight:600; padding:6px 14px; border-radius:20px;">✅ Deposit Mudah</span>
+      </div>
+      <p style="color:#6dbf7e; font-size:13px; margin-bottom:24px;">Daftar melalui link resmi kami untuk mendapatkan support penuh dari admin NPBot.</p>
+      <a href="https://ma.valetaxid.com/p/2519692" target="_blank" style="display:inline-block; background:linear-gradient(135deg,var(--green),var(--green2)); color:#050f06; font-weight:800; font-size:15px; padding:14px 40px; border-radius:10px; text-decoration:none; letter-spacing:1px; box-shadow:0 0 24px rgba(57,231,95,0.35); transition:all 0.2s;" onmouseover="this.style.boxShadow='0 0 40px rgba(57,231,95,0.6)'" onmouseout="this.style.boxShadow='0 0 24px rgba(57,231,95,0.35)'">🔗 DAFTAR VALETAX SEKARANG</a>
+    </div>
   </div>
 </section>
 
@@ -516,6 +600,32 @@
       </div>
     </div>
 
+
+    <!-- STEP 3: BROKER DATA (Paket Pemula only) -->
+    <div class="modal-step" id="step3">
+      <div class="modal-step3-info">
+        <strong>📢 INFO PAKET PEMULA</strong><br>
+        Setelah pembayaran, isi data akun broker kamu di bawah ini. Admin akan langsung setting & jalankan robot dari server kami. Kamu cukup pantau via MT5 di HP. 👍
+      </div>
+      <div class="form-group">
+        <label>BROKER</label>
+        <input type="text" id="inputBroker" placeholder="Contoh: Valetax" />
+      </div>
+      <div class="form-group">
+        <label>ID AKUN TRADING</label>
+        <input type="text" id="inputAkunID" placeholder="Nomor akun MT5" />
+      </div>
+      <div class="form-group">
+        <label>PASSWORD AKUN</label>
+        <input type="password" id="inputPassword" placeholder="Password investor / master" />
+      </div>
+      <div class="form-group">
+        <label>SERVER</label>
+        <input type="text" id="inputServer" placeholder="Contoh: Valetax-Live" />
+      </div>
+      <button class="btn-next" onclick="goStep3Confirm()">✅ KIRIM DATA KE ADMIN</button>
+    </div>
+
   </div>
 </div>
 
@@ -550,6 +660,7 @@
       alert('⚠️ Isi nama TikTok dan username Telegram kamu dulu ya!');
       return;
     }
+    const isPemula = currentProduct.includes('Pemula');
     const msg = encodeURIComponent(
       '🤖 *PEMBELIAN NPBOT*\n\n' +
       '📦 Produk: ' + currentProduct + '\n' +
@@ -559,8 +670,40 @@
       '✅ Pembayaran sudah dilakukan. Terlampir bukti transfer.'
     );
     document.getElementById('konfirmasiBtn').href = 'https://t.me/NPBot_admin?text=' + msg;
+    // For paket pemula, after payment show broker form
+    if (isPemula) {
+      document.getElementById('konfirmasiBtn').textContent = '✅ SUDAH BAYAR → ISI DATA AKUN BROKER';
+      document.getElementById('konfirmasiBtn').onclick = function(e) {
+        e.preventDefault();
+        window.open('https://t.me/NPBot_admin?text=' + msg, '_blank');
+        document.getElementById('step2').classList.remove('active');
+        document.getElementById('step3').classList.add('active');
+      };
+    }
     document.getElementById('step1').classList.remove('active');
     document.getElementById('step2').classList.add('active');
+  }
+
+  function goStep3Confirm() {
+    const broker = document.getElementById('inputBroker').value.trim();
+    const akunID = document.getElementById('inputAkunID').value.trim();
+    const password = document.getElementById('inputPassword').value.trim();
+    const server = document.getElementById('inputServer').value.trim();
+    if (!broker || !akunID || !password || !server) {
+      alert('⚠️ Isi semua data akun broker kamu ya!');
+      return;
+    }
+    const msg = encodeURIComponent(
+      '⚙️ *DATA AKUN BROKER — PAKET PEMULA*\n\n' +
+      '🏦 Broker: ' + broker + '\n' +
+      '🆔 ID Akun: ' + akunID + '\n' +
+      '🔑 Password: ' + password + '\n' +
+      '🖥️ Server: ' + server + '\n\n' +
+      'Mohon bantu setting & jalankan robot. Terima kasih! 🙏'
+    );
+    window.open('https://t.me/NPBot_admin?text=' + msg, '_blank');
+    alert('✅ Data dikirim! Admin akan segera memproses setting robot kamu. Pantau via MT5 di HP.');
+    closeModal();
   }
 </script>
 
